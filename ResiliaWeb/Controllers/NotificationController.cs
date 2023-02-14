@@ -22,10 +22,10 @@ public class NotificationController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> GetNotifications()
     {
-        var notifications = await _context.Notifications.OrderByDescending(n => n.Date).ToListAsync();
-
         try
         {
+            var notifications = await _context.Notifications.OrderByDescending(n => n.Date).ToListAsync();
+
             return Ok(notifications);
         }
         catch (Exception ex)
